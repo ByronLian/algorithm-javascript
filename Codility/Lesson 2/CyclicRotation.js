@@ -24,7 +24,7 @@ function solution(A, K) {
 
   for (let i = 0; i < len; i++) {
     // New position if not exceed length of array A 
-    newIdx = i + K + 1;
+    let newIdx = i + K + 1;
     if (newIdx >= len) {
       // New position if exceed length of array A 
       newIdx = newIdx % len;
