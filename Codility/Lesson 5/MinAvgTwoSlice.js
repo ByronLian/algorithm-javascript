@@ -19,7 +19,6 @@ function solution(A) {
   // * avg of 2 elements
   // * avg of 3 elements
   // * the last 2 elements if you run the for-loop like below code
-  // * 
 
   let len = A.length;
   let miniAvg = (A[0] + A[1]) / 2;
