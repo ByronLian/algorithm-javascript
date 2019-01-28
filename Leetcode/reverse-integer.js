@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/reverse-integer
+// https://leetcode.com/problems/reverse-integer/
 // Runtime: 96 ms, faster than 46.57% of JavaScript online submissions for Reverse Integer.
 
 /*
