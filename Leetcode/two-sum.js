@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/two-sum/
-// Runtime: 72 ms, faster than 71.78% of JavaScript online submissions for Two Sum.
+// Runtime: 68 ms, faster than 100.00% of JavaScript online submissions for Two Sum.
+// Memory Usage: 16 MB, less than 15.43% of JavaScript online submissions for Two Sum.
 
 /*
  * @param {number[]} nums
