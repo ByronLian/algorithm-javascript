@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/repeated-substring-pattern/
-// Runtime: 100 ms, faster than 44.09% of JavaScript online submissions for Repeated Substring Pattern.
-// Memory Usage: 42.1 MB, less than 26.92% of JavaScript online submissions for Repeated Substring Pattern.
+// Runtime: 80 ms, faster than 64.57% of JavaScript online submissions for Repeated Substring Pattern.
+// Memory Usage: 37.7 MB, less than 69.23% of JavaScript online submissions for Repeated Substring Pattern.
 
 /*
  * @param {string} s
@@ -15,16 +15,14 @@ var repeatedSubstringPattern = function (s) {
   // The idea is repeat current substring and compare with s
   //
   // e.g s = "abab"
-  // loop1: currentSubstring = "a", currentSubstring repeat = "aaaa", not equals s
-  // loop2" currentSubstring = "ab", currentSubstring repeat = "abab" equals s
-  
-  let currentSubstring = '';
+  // loop1: currentSubstr = "a", currentSubstr repeat = "aaaa", not equals s
+  // loop2" currentSubstr = "ab", currentSubstr repeat = "abab" equals s
 
   for (let i = 0; i < len; i++) {
-    currentSubstring += s[i];
-    const currentSubstringLen = currentSubstring.length;
+    let currentSubstr = s.substring(0, i + 1);
+    const currentSubstrLen = i + 1;
 
-    if (currentSubstring.repeat(len / currentSubstringLen) === s) return true;
-    if (currentSubstringLen * 2 >= len) return false;
+    if (currentSubstr.repeat(len / currentSubstrLen) === s) return true;
+    if (currentSubstrLen * 2 >= len) return false;
   }
 };
