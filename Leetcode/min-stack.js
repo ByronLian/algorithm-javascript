@@ -10,7 +10,7 @@ var MinStack = function () {
   this.min = [];
 };
 
-/**
+/*
 * @param {number} x
 * @return {void}
 */
