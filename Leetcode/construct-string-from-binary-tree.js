@@ -15,7 +15,7 @@
 
 var tree2str = function (t) {
   if (t == null) return "";
-  if (t.left == null && t.right == null) return t.val + "";
+  if (t.left == null && t.right == null) return t.val.toString();
   if (t.right == null) return t.val + `(${tree2str(t.left)})`;
   return t.val + `(${tree2str(t.left)})` + `(${tree2str(t.right)})`;
 };
