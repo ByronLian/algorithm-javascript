@@ -20,7 +20,7 @@ var levelOrderBottom = function (root) {
   let traverse = (node, lv) => {
     if (!node) return;
 
-    if (map[lv] === undefined) map[lv] = new Array();
+    if (map[lv] === undefined) map[lv] = [];
     map[lv].push(node.val);
 
     node.left && traverse(node.left, lv + 1);

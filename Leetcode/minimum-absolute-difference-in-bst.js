@@ -1,4 +1,6 @@
 // https://leetcode.com/problems/minimum-absolute-difference-in-bst
+// Runtime: 88 ms, faster than 89.00% of JavaScript online submissions for Minimum Absolute Difference in BST.
+// Memory Usage: 42.6 MB, less than 28.50% of JavaScript online submissions for Minimum Absolute Difference in BST.
 
 /**
  * Definition for a binary tree node.
@@ -24,12 +26,9 @@ var getMinimumDifference = function (root) {
 
   traverse(root);
 
-  let min = temp[temp.length - 1] + 1;
-
-  for (let i = 0; i < temp.length; i++) {
-    for (let j = i + 1; j < temp.length; j++) {
-      if (Math.abs(temp[i] - temp[j]) < min) min = Math.abs(temp[i] - temp[j]);
-    }
+  let min = Infinity;
+  for (let i = 0; i < temp.length-1; i++) {
+    if (Math.abs(temp[i] - temp[i+1]) < min) min = Math.abs(temp[i] - temp[i+1]);
   }
 
   return min;

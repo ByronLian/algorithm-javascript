@@ -18,18 +18,17 @@
 
 var isCousins = function (root, x, y) {
   if (!root) return false;
-  if (root && root.val) cache[root.val] = { depth: 0, parent: null };
-
   let cache = {};
+  if (root && root.val) cache[root.val] = { depth: 0, parent: null };
 
   const dfs = (node, depth = 1) => {
     if (node && node.left) {
-      cache[node.left.val] = { parent: node.val, depth };
+      cache[node.left.val] = { parent: node.val, depth: depth };
       dfs(node.left, depth + 1);
     }
 
     if (node && node.right) {
-      cache[node.right.val] = { parent: node.val, depth };
+      cache[node.right.val] = { parent: node.val, depth: depth };
       dfs(node.right, depth + 1);
     }
   };
