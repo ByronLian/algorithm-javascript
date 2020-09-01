@@ -21,7 +21,7 @@ var averageOfLevels = function (root) {
   let traverse = (node, lv) => {
     if (!node) return;
 
-    if (result[lv] === undefined) result[lv] = new Array();
+    if (result[lv] === undefined) result[lv] = [];
     result[lv].push(node.val);
     node.left && traverse(node.left, lv + 1);
     node.right && traverse(node.right, lv + 1);

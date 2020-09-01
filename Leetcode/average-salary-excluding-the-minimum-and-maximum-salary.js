@@ -8,8 +8,8 @@
  */
 
 var average = function (salary) {
-  let min = salary[0];
-  let max = 0;
+  let min = -Infinity;
+  let max = Infinity;
   let result = 0;
 
   for (let i = 0; i < salary.length; i++) {

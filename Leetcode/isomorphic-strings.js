@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/merge-two-sorted-lists/
+// https://leetcode.com/problems/isomorphic-strings/
 // Runtime: 88 ms, faster than 35.29% of JavaScript online submissions for Isomorphic Strings.
 
 /*
