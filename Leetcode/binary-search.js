@@ -22,11 +22,4 @@ var search = function (nums, target) {
     }
   }
   return nums[i] === target ? i : -1;
-
-  // if (target > nums[nums.length - 1]) return -1;
-
-  // for (let i = 0; i < nums.length; i++) {
-  //   if (nums[i] === target) return i;
-  //   if (nums[i] > target) return -1;
-  // }
 };
