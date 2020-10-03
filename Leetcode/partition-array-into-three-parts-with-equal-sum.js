@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/
-// Runtime: 80 ms, faster than 89.44% of JavaScript online submissions for Partition Array Into Three Parts With Equal Sum.
-// Memory Usage: 41.9 MB, less than 50.00% of JavaScript online submissions for Partition Array Into Three Parts With Equal Sum.
+// Runtime: 76 ms, faster than 97.28% of JavaScript online submissions for Partition Array Into Three Parts With Equal Sum.
+// Memory Usage: 43.5 MB, less than 17.00% of JavaScript online submissions for Partition Array Into Three Parts With Equal Sum.
 
 /*
  * @param {number[]} A
@@ -13,29 +13,10 @@ var canThreePartsEqualSum = function (A) {
 
   let temp = 0;
   let count = 0;
- 
-  // Case when avg is 0
-  if (avg === 0) {
-    for (let i = 0; i < A.length; i++) {
-      temp += A[i];
-      if (temp === avg) {
-        temp = 0;
-        count++;
-      }
-      if (i === A.length) {
-        if (temp !== avg) {
-          return false;
-        } else {
-          count++;
-        }
-      }
-    }
 
-    return count >= 3 ? true : false;
-  }
-
-  // Case when avg > 0
   for (let i = 0; i < A.length; i++) {
+    if (count > 3) break;
+
     temp += A[i];
     if (temp === avg) {
       temp = 0;
@@ -50,5 +31,6 @@ var canThreePartsEqualSum = function (A) {
     }
   }
 
-  return count !== 3 ? false : true;
+  if (avg === 0) return count >= 3 ? true : false;
+  return count === 3 ? true : false;
 };

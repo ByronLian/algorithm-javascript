@@ -32,7 +32,7 @@ var reverseOnlyLetters = function (S) {
 };
 
 // This function is used to check if it's letter or not
-function isLetter(char) {
+const isLetter = (char) => {
   const ascVal = char.charCodeAt();
 
   if ((ascVal > 64 && ascVal < 91) || (ascVal > 96 && ascVal < 123)) {
