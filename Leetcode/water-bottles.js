@@ -9,11 +9,11 @@
  */
 
 var numWaterBottles = function (numBottles, numExchange) {
-
   let counter = numBottles;
 
   while (true) {
     let left = Math.floor(numBottles / numExchange);
+  
     if (left < 1) break;
     counter += left;
     numBottles = left + (numBottles - numExchange * left);

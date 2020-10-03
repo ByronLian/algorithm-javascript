@@ -15,10 +15,10 @@ var subtractProductAndSum = function (n) {
   let addVal = 0;
 
   for (let i = 0; i < str.length; i++) {
-    timesVal *= parseInt(str[i]);
-    addVal += parseInt(str[i]);
+    const val = parseInt(str[i]);
+    timesVal *= val;
+    addVal += val;
   }
-
 
   return timesVal - addVal;
 };

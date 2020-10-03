@@ -22,6 +22,6 @@ var trimBST = function (root, L, R) {
 
   root.left = trimBST(root.left, L, R);
   root.right = trimBST(root.right, L, R);
-  return root;
 
+  return root;
 };

@@ -20,7 +20,7 @@ var isSubtree = function (s, t) {
   return compareTreeNode(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t);
 };
 
-function compareTreeNode(s, t) {
+const compareTreeNode = (s, t) => {
   if (s === null && t === null) return true;
   if (s === null || t === null) return false;
 

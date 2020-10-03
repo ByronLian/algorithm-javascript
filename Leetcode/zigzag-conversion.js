@@ -9,7 +9,6 @@
  */
 
 var convert = function (s, numRows) {
-
   if (s.length < numRows || numRows < 2 || s.length < 2) return s;
 
   let result = '';

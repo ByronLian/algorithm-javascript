@@ -16,9 +16,7 @@ var uniqueOccurrences = function (arr) {
 
   // Input: arr = [1,2,2,1,1,3]
   // Output: arr = [1,1,1,2,2,3]
-  arr.sort(function (a, b) {
-    return a - b;
-  });
+  arr.sort((a, b) => a - b);
 
   // Count until number changed
   // Check the count of number exists in result array or not
