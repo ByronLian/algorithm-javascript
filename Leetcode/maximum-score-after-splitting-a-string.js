@@ -22,4 +22,6 @@ var maxScore = function (s) {
   }
 
   return max;
+  
+  // TODO: Can have an enhancement, we need to find the most 0 and most 1 only
 };

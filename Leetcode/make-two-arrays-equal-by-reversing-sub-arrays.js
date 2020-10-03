@@ -37,4 +37,15 @@ var canBeEqual = function (target, arr) {
     count++;
   }
   return true;
+
+  // If you don't care step, here's simple way
+
+  // target.sort((a, b) => a - b);
+  // arr.sort((a, b) => a - b);
+
+  // for (let i = 0; i < target.length; i++) {
+  //   if (target[i] !== arr[i]) return false;
+  // }
+
+  // return true;
 };

@@ -13,9 +13,7 @@ var longestCommonPrefix = function (strs) {
   if (strs.length === 1) return strs[0];
 
   // Sorting from shortest length word to longest one
-  const newArr = strs.sort(function (a, b) {
-    return a.length - b.length;
-  });
+  const newArr = strs.sort((a, b) => a.length - b.length );
 
   // Using shortest word to check the prefix
   for (let i = 0; i < newArr[0].length; i++) {

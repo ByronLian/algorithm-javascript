@@ -17,7 +17,6 @@
 
 var maxLevelSum = function (root) {
   let temp = [];
-  let max = 0;
 
   let traverse = (node, lv) => {
     node.left && traverse(node.left, lv + 1);
@@ -28,8 +27,6 @@ var maxLevelSum = function (root) {
     } else {
       temp[lv] = node.val
     }
-
-    if (temp[lv] > max) max = temp[lv];
   }
 
   traverse(root, 0);

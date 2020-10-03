@@ -30,7 +30,7 @@ var longestPalindrome = function (s) {
     }
   }
 
-  const oddsVal = odds.length > 0 ? odds.reduce((acc, val) => acc + val) : 0;
+  const oddsVal = countOdd > 0 ? odds.reduce((acc, val) => acc + val) : 0;
   const total = oddsVal === 0 ? count : count + oddsVal - countOdd + 1;
 
   return total;
