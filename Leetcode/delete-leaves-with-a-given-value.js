@@ -24,6 +24,7 @@ var removeLeafNodes = function (root, target) {
     node.left = traverse(node.left);
     node.right = traverse(node.right);
 
+    // Since it's leaves so we can simply give it null
     return !node.left && !node.right && node.val === target ? null : node;
   }
 

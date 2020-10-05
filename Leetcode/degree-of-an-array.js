@@ -10,7 +10,7 @@ var findShortestSubArray = function (nums) {
 
   let map = {};
   let max = 0;
-  let maxGroup = {};
+  let maxWithRightIdx = {};
   for (let i = 0; i < nums.length; i++) {
     if (map[nums[i]]) {
       map[nums[i]] += 1;
@@ -20,18 +20,18 @@ var findShortestSubArray = function (nums) {
 
     if (map[nums[i]] > max) {
       max = map[nums[i]];
-      maxGroup = {};
+      maxWithRightIdx = {};
     }
 
     // Store right index
-    if (map[nums[i]] === max) maxGroup[nums[i]] = i;
+    if (map[nums[i]] === max) maxWithRightIdx[nums[i]] = i;
   }
 
   let min = Infinity;
-  for (let item in maxGroup) {
-    let target = parseInt(item);
-    let leftIdx = nums.indexOf(target);
-    let rightIdx = maxGroup[item];
+  for (let item in maxWithRightIdx) {
+    const target = parseInt(item);
+    const leftIdx = nums.indexOf(target);
+    const rightIdx = maxWithRightIdx[item];
 
     if (rightIdx - leftIdx + 1 < min) min = rightIdx - leftIdx + 1;
   }

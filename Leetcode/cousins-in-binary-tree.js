@@ -22,12 +22,14 @@ var isCousins = function (root, x, y) {
   if (root && root.val) cache[root.val] = { depth: 0, parent: null };
 
   const dfs = (node, depth = 1) => {
-    if (node && node.left) {
+    if(!node) return;
+
+    if (node.left) {
       cache[node.left.val] = { parent: node.val, depth: depth };
       dfs(node.left, depth + 1);
     }
 
-    if (node && node.right) {
+    if (node.right) {
       cache[node.right.val] = { parent: node.val, depth: depth };
       dfs(node.right, depth + 1);
     }
@@ -35,10 +37,5 @@ var isCousins = function (root, x, y) {
 
   dfs(root);
 
-  let depthOfX = cache[x].depth;
-  let depthOfY = cache[y].depth;
-  let parentOfX = cache[x].parent;
-  let parentOfY = cache[y].parent;
-
-  return depthOfX === depthOfY && parentOfX !== parentOfY;
+  return cache[x].depth === cache[y].depth && cache[x].parent !== cache[y].parent;
 };
