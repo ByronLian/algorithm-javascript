@@ -29,6 +29,6 @@ var destCity = function (paths) {
 };
 
 // Another quicker way
-// use Set and pop original array until last
+// use Set and filter City which has destination and return the City which has no destination
 // const A = new Set(paths.map((path) => path[0]));
 // return paths.filter((path) => !A.has(path[1])).pop()[1];

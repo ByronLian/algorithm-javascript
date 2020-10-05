@@ -37,7 +37,6 @@ var detectCapitalUse = function (word) {
 
       return true;
     }
-
   }
 
   // Case "dog"
