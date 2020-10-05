@@ -1,6 +1,6 @@
-// https://leetcode.com/jewels-and-stones/
-// Runtime: 80 ms, faster than 53.24% of JavaScript online submissions for Jewels and Stones.
-// Memory Usage: 36.8 MB, less than 17.45% of JavaScript online submissions for Jewels and Stones.
+// https://leetcode.com/problems/jewels-and-stones/
+// Runtime: 72 ms, faster than 93.22% of JavaScript online submissions for Jewels and Stones.
+// Memory Usage: 39.8 MB, less than 6.89% of JavaScript online submissions for Jewels and Stones.
 
 /*
  * @param {string} J
@@ -9,15 +9,21 @@
  */
 
 var numJewelsInStones = function (J, S) {
-
-  let currentLen = S.length;
-  if (currentLen < 1) return 0;
+  let sLen = S.length;
+  if (sLen < 1) return 0;
   let count = 0;
+  let map = {};
 
-  for (let i = 0; i < J.length; i++) {
-    S = S.split(J[i]).join('');
-    count += currentLen - S.length;
-    currentLen = S.length;
+  for (let i = 0; i < sLen; i++) {
+    if (map[S[i]] === undefined) {
+      map[S[i]] = 1;
+    } else {
+      map[S[i]] += 1;
+    }
+  }
+
+  for (let j = 0; j < J.length; j++) {
+    if (map[J[j]] >= 1) count += map[J[j]];
   }
 
   return count;
