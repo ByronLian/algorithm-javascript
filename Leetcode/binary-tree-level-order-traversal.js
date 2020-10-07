@@ -34,24 +34,24 @@ var levelOrder = function (root) {
 
 
   //BFS
-  if (!root) return [];
+  // if (!root) return [];
     
-  const order = [];
-  const queue = [[root]];
+  // const order = [];
+  // const queue = [[root]];
 
-  while (queue.length) {
-      const currItems = queue.pop();
-      const nextItems = [];
-      const currLevel = []; 
-      for (const item of currItems) {
-          currLevel.push(item.val);
-          item.left && nextItems.push(item.left);
-          item.right && nextItems.push(item.right);
-      }
+  // while (queue.length) {
+  //     const currItems = queue.pop();
+  //     const nextItems = [];
+  //     const currLevel = []; 
+  //     for (const item of currItems) {
+  //         currLevel.push(item.val);
+  //         item.left && nextItems.push(item.left);
+  //         item.right && nextItems.push(item.right);
+  //     }
        
-      order.push(currLevel);
-      nextItems.length && queue.push(nextItems);
-  }
+  //     order.push(currLevel);
+  //     nextItems.length && queue.push(nextItems);
+  // }
   
-  return order;
+  // return order;
 };

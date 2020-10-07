@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/
-// Runtime: 76 ms, faster than 50.32% of JavaScript online submissions for Check If a Word Occurs As a Prefix of Any Word in a Sentence.
-// Memory Usage: 36.7 MB, less than 12.25% of JavaScript online submissions for Check If a Word Occurs As a Prefix of Any Word in a Sentence.
+// Runtime: 76 ms, faster than 61.11% of JavaScript online submissions for Check If a Word Occurs As a Prefix of Any Word in a Sentence.
+// Memory Usage: 38.6 MB, less than 5.55% of JavaScript online submissions for Check If a Word Occurs As a Prefix of Any Word in a Sentence.
 
 /*
  * @param {string} sentence
