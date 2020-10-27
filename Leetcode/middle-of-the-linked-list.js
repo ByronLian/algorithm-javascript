@@ -27,4 +27,6 @@ var middleNode = function (head) {
   }
 
   return dp[Math.floor(count / 2)];
+
+  // 2 pointers is also a common way to find the middle of linked list
 };
