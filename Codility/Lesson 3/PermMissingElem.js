@@ -4,49 +4,17 @@
 // Performance: 100, O(N) or O(N * log(N))
 
 function solution(A) {
-    let len = A.length;
-    let N1 = len + 1;
+  const len = A.length;
+  // Case []
+  if (len === 0) return 1;
 
-    // Return 1 if no element
-    // e.g []
-    if (len === 0) {
-        return 1;
-    }
+  A.sort((a, b) => a - b);
 
-    // Return if only one element
-    // e.g [1] or [2]
-    if (len === 1) {
-        if (A[0] === 2) {
-            return 1;
-        } else {
-            return 2;
-        }
-    }
+  // Case [2, 4, 5, 6]
+  for (let i = 0; i < len - 1; i++) {
+    if (A[i + 1] - A[i] > 1) return A[i + 1] - 1;
+  }
 
-    // Sorting array 
-    // e.g [2, 1, 3, 5] => [1, 2, 3, 5] 
-    A.sort(function (a, b) {
-        return a - b;
-    });
-
-    // Return if [2, 3, 4, 5 ....]
-    if (A[0] === 2) {
-        return 1;
-    }
-
-    // Return if [1, 2, 3, 4... N-1]
-    if (A[len - 1] !== N1) {
-        return N1;
-    }
-
-    // Other cases
-    // e.g 
-    // [1, 2, 4, 5] => 4-2 > 1 return 3
-    // [1, 3, 4, 5] => 3-1 > 1 return 2
-    for (let i = 0; i < len; i++) {
-        let temp = A[i + 1] - A[i];
-        if (temp > 1) {
-            return A[i] + 1;
-        }
-    }
+  // Case [1, 2, 3, 4] or [2, 3, 4, 5]
+  return A[0] === 2 ? 1 : A[len - 1] + 1;
 }

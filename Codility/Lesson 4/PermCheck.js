@@ -5,14 +5,13 @@
 
 function solution(A) {
   let len = A.length;
-  let firstEl = A[0];
 
   // If only one element
-  if (len === 1) {
-    if (firstEl > 1) {
-      return 0; // e.g A[2] case
+  if (A.length === 1) {
+    if (A[0] > 1) {
+      return 0;
     } else {
-      return 1; // e.g A[1] case
+      return 1;
     }
   }
 
@@ -22,30 +21,22 @@ function solution(A) {
   // A[2] = 3
   // A[3] = 2
   // sorting > A [1, 2, 3, 4]
-  A.sort(function (a, b) {
-    return a - b;
-  });
-
-  // Reassign first element after sorted
-  firstEl = A[0];
+  A.sort((a, b) => a - b);
 
   // e.g
   // A [1, 2, 4, 5]
   // calculate the difference between neighbor elements
   // 2 - 1 = 1 not 0 and not big than 1 so continue
   // 4 - 2 = 2 big than 1 then this array is not a permutation
-  let tmp = 0;
-  for (let i = 0; i < len; i++) {
-    tmp = A[i + 1] - A[i];
-    if (tmp === 0 || tmp > 1) {
-      return 0;
-    }
+  for (let i = 0; i < len - 1; i++) {
+    const tmp = A[i + 1] - A[i];
+    if (tmp > 1 || tmp === 0) return 0;
   }
 
   // Other cases if for-loop did not return 0
-  if (firstEl === 1) {
-    return 1; // e.g [1, 2, 3, 4] case
+  if (A[0] > 1) {
+    return 0;
   } else {
-    return 0; // e.g [2, 3, 4, 5] case
+    return 1;
   }
 }

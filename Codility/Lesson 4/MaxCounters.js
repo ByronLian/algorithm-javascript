@@ -5,7 +5,7 @@
 
 function solution(N, A) {
   // Initial array which length is N for saving final result
-  let resultArr = new Array(N);
+  let result = [];
 
   // Solution:
   // what we did is using currentBigVal to save current biggest value in result array
@@ -42,21 +42,19 @@ function solution(N, A) {
 
   for (let i = 0; i < len; i++) {
     if (A[i] === N1) {
-      resultArr.length = 0;
+      result = [];
       additionVal += currentBigVal;
       currentBigVal = 0;
     } else {
-      if (resultArr[A[i] - 1] === undefined) resultArr[A[i] - 1] = 0;
-
-      resultArr[A[i] - 1]++;
-
-      if (currentBigVal < resultArr[A[i] - 1]) currentBigVal = resultArr[A[i] - 1];
+      if (result[A[i] - 1] === undefined) result[A[i] - 1] = 0;
+      result[A[i] - 1]++;
+      if (currentBigVal < result[A[i] - 1]) currentBigVal = result[A[i] - 1];
     }
   }
 
   for (let i = 0; i < N; i++) {
-    resultArr[i] = resultArr[i] === undefined ? additionVal : resultArr[i] + additionVal;
+    result[i] = result[i] === undefined ? additionVal : result[i] + additionVal;
   }
 
-  return resultArr;
+  return result;
 }
