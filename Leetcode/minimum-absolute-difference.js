@@ -16,7 +16,7 @@ var minimumAbsDifference = function (arr) {
     if (temp < minimum) minimum = temp;
   }
 
-  let result = [];
+  const result = [];
   for (let j = 0; j < arr.length; j++) {
     for (let k = j + 1; k < arr.length; k++) {
       if (Math.abs(arr[k] - arr[j]) === minimum) {

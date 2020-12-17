@@ -9,7 +9,7 @@
 var minAddToMakeValid = function (S) {
   if (S.length <= 1) return S.length;
 
-  let stack = [S[0]];
+  const stack = [S[0]];
 
   for (let i = 1; i < S.length; i++) {
     if (stack.length === 0) {

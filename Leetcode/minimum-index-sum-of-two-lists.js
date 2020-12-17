@@ -26,7 +26,7 @@ var findRestaurant = function (list1, list2) {
     }
   }
 
-  let result = [];
+  const result = [];
   for (let common in commons) {
     if (commons[common] === min) result.push(common);
   }
