@@ -24,7 +24,7 @@ var addToArrayForm = function (A, K) {
       if (carry === 0) break; // For performance
       shortArr[j] = 0;
     }
-    
+
     let tmp = parseInt(longArr[i]) + parseInt(shortArr[j]) + carry;
     if (tmp > 9) {
       carry = 1;

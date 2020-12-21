@@ -8,12 +8,16 @@
  */
 
 var addDigits = function (num) {
-  for (; num.toString().length > 1;) {
-    // e.g 234
-    // 234 => '234' => ['2', '3', '4'] => get total
-    // a = accumulator
-    // c = currentValue
-    num = num.toString().split``.reduce((a, c) => a + +c);
+  // e.g 234
+  // 234 => '234' => ['2', '3', '4'] => get total
+  // a = accumulator
+  // c = currentValue
+  while (num.toString().length > 1) {
+    num = num
+      .toString()
+      .split("")
+      .reduce((a, c) => parseInt(a, 10) + parseInt(c, 10));
   }
+
   return num;
 };
