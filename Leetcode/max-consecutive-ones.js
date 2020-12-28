@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/max-consecutive-ones/
-// Runtime: 84 ms, faster than 67.11% of JavaScript online submissions for Max Consecutive Ones.
-// Memory Usage: 43.5 MB, less than 5.01% of JavaScript online submissions for Max Consecutive Ones.
+// Runtime: 80 ms, faster than 93.08% of JavaScript online submissions for Max Consecutive Ones.
+// Memory Usage: 40.9 MB, less than 94.22% of JavaScript online submissions for Max Consecutive Ones.
 
 /*
  * @param {number[]} nums
@@ -8,15 +8,17 @@
  */
 
 var findMaxConsecutiveOnes = function (nums) {
-  let has1 = nums.filter((x) => x === 1).length;
-  if (has1 === 0) return 0;
-
-  let numsArr = nums.join("").split("0");
   let max = 0;
+  let currentCount = 0;
 
-  for (let i = 0; i < numsArr.length; i++) {
-    if (numsArr[i] > max) max = numsArr[i];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      if (currentCount > max) max = currentCount;
+      currentCount = 0;
+    } else {
+      currentCount++;
+    }
   }
 
-  return max.toString().length;
+  return currentCount > max ? currentCount : max;
 };
