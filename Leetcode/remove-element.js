@@ -17,4 +17,5 @@ var removeElement = function (nums, val) {
     nums[i] === val ? nums.splice(i, 1) : i++
   }
 
+  return nums.length
 };

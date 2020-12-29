@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/move-zeroes/
-// Runtime: 64 ms, faster than 85.55% of JavaScript online submissions for Move Zeroes.
-// Memory Usage: 35.6 MB, less than 88.50% of JavaScript online submissions for Move Zeroes.
+// Runtime: 80 ms, faster than 92.14% of JavaScript online submissions for Move Zeroes.
+// Memory Usage: 40.3 MB, less than 64.91% of JavaScript online submissions for Move Zeroes.
 
 /*
  * @param {number[]} nums
@@ -8,18 +8,16 @@
  */
 
 var moveZeroes = function (nums) {
-  let len = nums.length;
-  let i = 0;
-  
   // Solution
   // The idea is remove 0 and add new one to last when we found 0
-  while (i < len) {
+  let i = 0;
+  while (i < nums.length) {
     if (nums[i] === 0) {
-      nums.splice(i, 1);
-      nums[nums.length] = 0;
-      len--;
+      nums.push(nums.splice(i, 1));
     } else {
       i++;
     }
   }
+
+  return nums;
 };
