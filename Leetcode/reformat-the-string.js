@@ -1,4 +1,6 @@
 // https://leetcode.com/problems/reformat-the-string/
+// Runtime: 84 ms, faster than 94.67% of JavaScript online submissions for Reformat The String.
+// Memory Usage: 43.2 MB, less than 55.33% of JavaScript online submissions for Reformat The String.
 
 /*
  * @param {string} s
@@ -6,18 +8,19 @@
  */
 
 var reformat = function (s) {
-  const nums = s.split("").filter((x) => x.charCodeAt() < 97);
-  const letters = s.split("").filter((x) => x.charCodeAt() >= 97);
+  const arr = s.split("");
+  const numbers = arr.filter((x) => x.charCodeAt() < 97);
+  const letters = arr.filter((x) => x.charCodeAt() >= 97);
 
-  if (Math.abs(nums.length - letters.length) > 1) return "";
+  if (Math.abs(numbers.length - letters.length) > 1) return "";
 
   let result = "";
-  let bigger = nums.length > letters.length ? nums : letters;
-  let smaller = nums.length > letters.length ? letters : nums;
+  const bigger = numbers.length > letters.length ? numbers : letters;
+  const smaller = numbers.length > letters.length ? letters : numbers;
 
-  while (bigger.length) {
-    result += bigger.pop();
-    if (smaller.length) result += smaller.pop();
+  for (let i = 0; i < bigger.length; i++) {
+    result += bigger[i];
+    if (smaller[i] !== undefined) result += smaller[i];
   }
 
   return result;
