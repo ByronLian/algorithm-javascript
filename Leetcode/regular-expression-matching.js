@@ -10,20 +10,22 @@
 
 var isMatch = function (s, p) {
   const dp = {};
+  const sLength = s.length;
+  const pLength = p.length;
 
   const dfs = (i, j) => {
     if (dp[`${i},${j}`] !== undefined) return dp[`${i},${j}`];
 
     // Case that match all
-    if (i >= s.length && j >= p.length) return true;
+    if (i >= sLength && j >= pLength) return true;
     // Case that pattern is finished but target still not finish yet
-    if (j >= p.length) return false;
+    if (j >= pLength) return false;
 
     // Case that current letter match
-    const match = i < s.length && (s[i] === p[j] || p[j] === '.');
+    const match = i < sLength && (s[i] === p[j] || p[j] === '.');
 
     // Case that next pattern is *
-    if (j + 1 < p.length && p[j + 1] === '*') {
+    if (j + 1 < pLength && p[j + 1] === '*') {
       dp[`${i},${j}`] = dfs(i, j + 2) || (match && dfs(i + 1, j));
       return dp[`${i},${j}`];
     }
