@@ -20,7 +20,7 @@ var combinationSum = function (candidates, target) {
     for (let i = start; i < len; i++) {
       arr.push(candidates[i]);
       checkAndPick([...arr], sum + candidates[i], i);
-      arr.pop(); // backtrack
+      arr.pop();
     }
   }
 
