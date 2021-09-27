@@ -9,7 +9,7 @@
 var longestCommonSubsequence = function (text1, text2) {
   // Create matrix has text1.length + 1 * text2.length + 1
 
-  const dp = Array.from(Array(text1.length + 1), (_) =>
+  const dp = Array.from(Array(text1.length + 1), () =>
     Array(text2.length + 1).fill(0)
   );
 

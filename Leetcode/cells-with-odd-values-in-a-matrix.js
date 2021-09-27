@@ -12,8 +12,9 @@
 var oddCells = function (n, m, indices) {
   let count = 0;
 
-  // Initial arry with 0
-  const result = new Array(n).fill(0);
+  // Initial array with 0
+  const result = Array.from(Array(n), () => Array(m).fill(0));
+
   for (let i = 0; i < result.length; i++) {
     result[i] = new Array(m).fill(0);
   }
