@@ -16,10 +16,10 @@
  */
 
 var isBalanced = function (root) {
-  let dfs = node => {
+  let height = node => {
     if (!node) return 0;
-    let left = dfs(node.left);
-    let right = dfs(node.right);
+    let left = height(node.left);
+    let right = height(node.right);
 
     if (left === -1 || right === -1 || Math.abs(left - right) > 1) return -1;
 
@@ -27,5 +27,6 @@ var isBalanced = function (root) {
     return 1 + Math.max(left, right);
   };
 
-  return dfs(root) !== -1;
+  // -1 means subtree is not balanced
+  return height(root) !== -1;
 };

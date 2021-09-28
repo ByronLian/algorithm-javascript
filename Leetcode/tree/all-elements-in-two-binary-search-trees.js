@@ -1,6 +1,5 @@
-// https://leetcode.com/problems/all-elements-in-two-binary-search-trees/
-// Runtime: 188 ms, faster than 85.24% of JavaScript online submissions for All Elements in Two Binary Search Trees.
-// Memory Usage: 47.4 MB, less than 90.00% of JavaScript online submissions for All Elements in Two Binary Search Trees.
+// https://leetcode.com/problems/all-elements-in-two-binary-search-trees
+// Solution from here: https://leetcode.com/problems/all-elements-in-two-binary-search-trees/discuss/1358245/Javascript-DFS-inorder-100-runtime
 
 /**
  * Definition for a binary tree node.
@@ -16,21 +15,46 @@
  * @return {number[]}
  */
 
+const traverse = (node, list) => {
+  if (!node) {
+    return list;
+  }
+  traverse(node.left, list);
+  list.push(node.val);
+  traverse(node.right, list);
+
+  return list;
+};
+
 var getAllElements = function (root1, root2) {
-  // Traverse tree by in order will get the sort array
-  // and then concat 2 arrays and sorting
-  let root1Result = [],
-    root2Result = [];
+  const list1 = traverse(root1, []);
+  const list2 = traverse(root2, []);
 
-  const traverse = (node, elementsArr) => {
-    if (!node) return null;
+  let i = 0;
+  let j = 0;
+  const result = [];
+  while (i < list1.length || j < list2.length) {
+    if (i < list1.length && j < list2.length) {
+      if (list1[i] < list2[j]) {
+        result.push(list1[i]);
+        i++;
+      } else if (list1[i] > list2[j]) {
+        result.push(list2[j]);
+        j++;
+      } else {
+        result.push(list1[i]);
+        result.push(list2[j]);
+        i++;
+        j++;
+      }
+    } else if (i < list1.length) {
+      result.push(list1[i]);
+      i++;
+    } else if (j < list2.length) {
+      result.push(list2[j]);
+      j++;
+    }
+  }
 
-    traverse(node.left, elementsArr);
-    elementsArr.push(node.val);
-    traverse(node.right, elementsArr);
-  };
-
-  traverse(root1, root1Result);
-  traverse(root2, root2Result);
-  return root1Result.concat(root2Result).sort((a, b) => a - b);
+  return result;
 };
