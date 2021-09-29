@@ -34,10 +34,10 @@ var constructMaximumBinaryTree = function (nums) {
   const idx = findMaxIdx();
   root.val = nums[idx];
 
-  let leftNums = nums.slice(0, idx);
+  const leftNums = nums.slice(0, idx);
   root.left = leftNums.length ? constructMaximumBinaryTree(leftNums) : null;
 
-  let rightNums = nums.slice(idx + 1, nums.length);
+  const rightNums = nums.slice(idx + 1, nums.length);
   root.right = rightNums.length ? constructMaximumBinaryTree(rightNums) : null;
 
   return root;
