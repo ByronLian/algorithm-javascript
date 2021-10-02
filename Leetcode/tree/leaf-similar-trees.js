@@ -16,23 +16,22 @@
  * @return {boolean}
  */
 
-var leafSimilar = function (root1, root2) {
-  let root1Leaf = [];
-  let root2Leaf = [];
+const traverse = (node, result) => {
+  if (!node) return result;
 
-  let traverse = (node, result) => {
-    if (!node) return;
-
-    if (!node.left && !node.right) {
-      result.push(node.val);
-    } else {
-      node.left && traverse(node.left, result);
-      node.right && traverse(node.right, result);
-    }
+  if (!node.left && !node.right) {
+    result.push(node.val);
+  } else {
+    node.left && traverse(node.left, result);
+    node.right && traverse(node.right, result);
   }
 
-  traverse(root1, root1Leaf);
-  traverse(root2, root2Leaf);
+  return result;
+};
+
+var leafSimilar = function (root1, root2) {
+  const root1Leaf = traverse(root1, []);
+  const root2Leaf = traverse(root2, []);
 
   if (root1Leaf.length !== root2Leaf.length) return false;
 

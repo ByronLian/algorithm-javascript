@@ -17,7 +17,6 @@
  */
 
 var kthSmallest = function (root, k) {
-  // TODO: Iterative Inorder Traversal is faster than recursive
   const result = [];
 
   let traverse = (node) => {
@@ -31,4 +30,24 @@ var kthSmallest = function (root, k) {
   traverse(root);
 
   return result[k - 1];
+};
+
+// Iterative Inorder Traversal is faster than recursive
+var kthSmallest = function (root, k) {
+  if (!root) return root;
+
+  const stack = [];
+
+  // in order traversal
+  while (stack.length || root) {
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    root = stack.pop();
+    // node found
+    if (--k == 0) return root.val;
+    root = root.right;
+  }
+  return null;
 };
