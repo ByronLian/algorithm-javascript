@@ -16,13 +16,12 @@
  */
 
 var preorder = function (root) {
-  let result = [];
+  const result = [];
 
-  let traverse = root => {
+  const traverse = root => {
     if (!root) return;
 
     result.push(root.val);
-
     for (let child of root.children) {
       traverse(child);
     }

@@ -16,9 +16,9 @@
  */
 
 var levelOrder = function (root) {
-  let result = [];
+  const result = [];
 
-  let traverse = (node, lv) => {
+  const traverse = (node, lv) => {
     if (!node) return;
 
     result?.[lv] ? result[lv].push(node.val) : (result[lv] = [node.val]);

@@ -15,9 +15,9 @@
  */
 
 var postorder = function (root) {
-  let result = [];
+  const result = [];
 
-  let traverse = root => {
+  const traverse = root => {
     if (!root) return;
   
     for (let child of root.children) {

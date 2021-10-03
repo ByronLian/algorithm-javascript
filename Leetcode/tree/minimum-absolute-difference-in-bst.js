@@ -16,8 +16,8 @@
  */
 
 var getMinimumDifference = function (root) {
-  let temp = [];
-  let traverse = (node) => {
+  const temp = [];
+  const traverse = (node) => {
     if (!node) return;
     node.left && traverse(node.left);
     temp.push(node.val);

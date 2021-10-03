@@ -4,10 +4,11 @@
  * @param {number[]} nums
  */
 var NumArray = function (nums) {
-  this._nums = nums;
-
-  // dp is for memo
-  // this._dp = {};
+  const len = nums.length;
+  this._accumulate = Array(len + 1).fill(0);
+  for (let i = 1; i <= len; ++i) {
+    this._accumulate[i] = this._accumulate[i - 1] + nums[i - 1];
+  }
 };
 
 /*
@@ -16,18 +17,7 @@ var NumArray = function (nums) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function (i, j) {
-  let result = 0;
-  const start = i;
-  const end = j;
-
-  // if(this._dp[`${start},${end}`] !== undefined) return this._dp[`${start},${end}`];
-   
-  for (let i = start; i <= end; i++) {
-    result += this._nums[i];
-  }
-
-  // this._dp[`${start},${end}`] = result;
-  return result;
+  return this._accumulate[j + 1] - this._accumulate[i];
 };
 
 /**

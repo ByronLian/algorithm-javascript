@@ -8,10 +8,10 @@
  */
 
 var reverseWords = function (s) {
-  let arr = s.split(' ');
+  const arr = s.split(' ');
 
   for (let i = 0; i < arr.length; i++) {
-    const subArr = arr[i].split``;
+    const subArr = arr[i];
     arr[i] = '';
     for (let j = subArr.length - 1; j >= 0; j--) {
       arr[i] += subArr[j];
