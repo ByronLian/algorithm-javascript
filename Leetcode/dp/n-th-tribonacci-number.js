@@ -6,7 +6,7 @@
  * @return {number}
  */
 var tribonacci = function (n) {
-  let calc = new Array(n);
+  const calc = new Array(n);
   calc[0] = 0;
   calc[1] = 1;
   calc[2] = 1;
