@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/merge-two-sorted-lists/
-// Runtime: 80 ms, faster than 18.46% of JavaScript online submissions for Merge Two Sorted Lists.
+// Runtime: 80 ms, faster than 86.86% of JavaScript online submissions for Merge Two Sorted Lists.
+// Memory Usage: 40.3 MB, less than 72.11% of JavaScript online submissions for Merge Two Sorted Lists.
 
 /**
  * Definition for singly-linked list.
@@ -16,10 +17,10 @@
  */
 
 var mergeTwoLists = function (l1, l2) {
-  let result = new ListNode(0);
-  let currentHead = result; // Pointer
+  let root = new ListNode(0);
+  let currentHead = root; // Pointer
 
-  while (l1 !== null && l2 !== null) {
+  while (l1 && l2) {
 
     if (l1.val <= l2.val) {
       currentHead.next = l1;
@@ -32,7 +33,7 @@ var mergeTwoLists = function (l1, l2) {
     currentHead = currentHead.next;
   }
 
-  currentHead.next = l1 !== null ? l1 : l2;
+  currentHead.next = l1 ? l1 : l2;
   
-  return result.next;
+  return root.next;
 };
