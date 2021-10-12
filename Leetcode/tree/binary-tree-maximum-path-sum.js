@@ -25,7 +25,7 @@ var maxPathSum = function (root) {
       maximum,
       node.val,
       node.val + leftVal,
-      node.val + right,
+      node.val + rightVal,
       node.val + leftVal + rightVal
     );
 

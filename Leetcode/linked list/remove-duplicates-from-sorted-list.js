@@ -16,19 +16,15 @@
 
 var deleteDuplicates = function (head) {
   if (!head) return head;
+  let current = head;
 
-  let node = head.next;
-  let prev = head;
-
-  while (node) {
-    if (node.val !== prev.val) {
-      prev.next = node;
-      prev = node;
+  while (current && current.next) {
+    if (current.val === current.next.val) {
+      current.next = current.next.next;
+    } else {
+      current = current.next;
     }
-    node = node.next;
   }
 
-  // Case [1,2,3,3]
-  prev.next = null;
   return head;
 };

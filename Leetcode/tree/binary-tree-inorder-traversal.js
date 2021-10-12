@@ -14,25 +14,24 @@
  */
 
 var inorderTraversal = function (root) {
+  if (!root) return [];
+
   let result = [];
-  let stack = [];
-  root && stack.push(root);
+  let stack = [root];
 
   while (stack.length) {
     const item = stack.pop();
-  
+
     // left > root > right
     if (item.left) {
       stack.push(item);
       stack.push(item.left);
       // After push should assign null so it will go to else condition
       item.left = null;
-    }
-    else {
+    } else {
       result.push(item.val);
       item.right && stack.push(item.right);
     }
-
   }
 
   return result;
