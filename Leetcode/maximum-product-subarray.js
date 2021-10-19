@@ -25,3 +25,23 @@ var maxProduct = function (nums) {
 
   return result;
 };
+
+// var maxProduct = function(nums) {
+//   if(nums.length === 0) return 0;
+  
+//   let currentMax = nums[0];
+//   let currentMin = nums[0];
+//   let result = currentMax;
+  
+//   for(let i=1; i<nums.length; i++) {
+//       const currentEl = nums[i];
+      
+//       let tempMax = Math.max(currentEl, Math.max(currentMax * currentEl, currentMin * currentEl));
+//       currentMin = Math.min(currentEl, Math.min(currentMax * currentEl, currentMin * currentEl));
+//       currentMax = tempMax;
+
+//       result = Math.max(currentMax, result);
+//   }
+  
+//   return result;
+// };
